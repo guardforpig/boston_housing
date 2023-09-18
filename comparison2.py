@@ -24,5 +24,6 @@ y_test_predict=lr.predict(x_test)
 #画图
 plt.plot(y_test_predict,"r-")
 plt.plot(y_test,"b-")
+plt.legend()
 plt.show()
 

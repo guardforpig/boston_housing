@@ -24,5 +24,6 @@ error_train=mean_squared_error(y_train,y_train_predict)
 #画图
 plt.plot(y_test_predict,"r-",label="predict_value")
 plt.plot(y_test,"b-",label="True_value")
+plt.legend()
 plt.show()
 

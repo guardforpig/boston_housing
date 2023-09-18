@@ -34,5 +34,6 @@ for k in karr:
     print("训练数据的误差：",error_train)
 plt.scatter(karr,MSEtest,color='red')
 plt.scatter(karr,MSEtrain,color='blue')
+plt.legend()
 plt.show()
 
