@@ -15,9 +15,10 @@ karr=[0.3,0.4,0.5,0.6,0.7]
 MSEtest=[]
 MSEtrain=[]
 scaler= StandardScaler()
-x_scaled=scaler.fit_transform(x)
 for k in karr:
-    x_train_scaled, x_test_scaled, y_train, y_test = train_test_split(x_scaled,y,random_state=42,test_size=k)
+    x_train, x_test, y_train, y_test = train_test_split(x,y,random_state=42,test_size=k)
+    x_train_scaled=scaler.fit_transform(x_train)
+    x_test_scaled=scaler.transform(x_test)
     #载入线性回归模型
     lr=LinearRegression()
     #训练
@@ -34,8 +35,8 @@ for k in karr:
     print("k=",k)
     print("测试数据的误差：",error_test)
     print("训练数据的误差：",error_train)
-plt.scatter(karr,MSEtest,color='red')
-plt.scatter(karr,MSEtrain,color='blue')
+plt.scatter(karr,MSEtest,color='red',label="MSEtest")
+plt.scatter(karr,MSEtrain,color='blue',label="MSEtrain")
 plt.legend()
 plt.show()
 
